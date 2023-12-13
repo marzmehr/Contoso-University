@@ -1,0 +1,26 @@
+name: Deploy CONTOSO-UNIVERSITY
+on:
+    workflow_run:
+       workflows: ["Pack CONTOSO-UNIVERSITY"]
+       branches: [main]
+       types:
+         - completed
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        environment: Production
+        steps:
+        - uses: dawidd6/action-download-artifact@v2
+          with:
+            workflow: pack-solution.yml
+            name: packed-solution
+        - uses: microsoft/powerplatform-actions/import-solution@v0
+          with:
+            environment-url: https://org368c9bb2.crm3.dynamics.com/
+            user-name: ${{ secrets.USERNAME }}
+            password-secret: ${{ secrets.PASSWORD }}
+            solution-file: ManualExport_managed.zip
+
+
