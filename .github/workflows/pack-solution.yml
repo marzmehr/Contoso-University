@@ -12,7 +12,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: microsoft/powerplatform-actions/pack-solution@v0
               with:
-                    solution-file: out/contoso_university_core.zip
+                    solution-file: out/ManualExport.zip
                     solution-folder: contents
                     solution-type: Both
             - uses: actions/upload-artifact@v2
