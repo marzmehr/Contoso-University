@@ -21,6 +21,6 @@ jobs:
             environment-url: https://org368c9bb2.crm3.dynamics.com/
             user-name: ${{ secrets.USERNAME }}
             password-secret: ${{ secrets.PASSWORD }}
-            solution-file: ManualExport_managed.zip
+            solution-file: ManualExport.zip
 
 
